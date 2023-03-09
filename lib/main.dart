@@ -1,4 +1,4 @@
-import 'dart:ffi';
+ import 'dart:ffi';
 
 import 'package:ceg_ev_driver/screens/login_screen.dart';
 import 'package:ceg_ev_driver/screens/home_screen.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.teal,
         ),
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: true,
         home: isLoggedIn ? const Splash() : const LoginScreen());
   }
 }

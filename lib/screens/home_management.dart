@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../helpers/shared_prefs.dart';
+import 'login_screen.dart';
 
 class HomeManagement extends StatefulWidget {
   const HomeManagement({Key? key}) : super(key: key);
@@ -38,6 +39,7 @@ class _HomeManagementState extends State<HomeManagement> {
       body: SafeArea(
           child: Stack(
         children: [
+                 
           SizedBox(
             height: MediaQuery.of(context).size.height,
             child: MapboxMap(
@@ -49,7 +51,18 @@ class _HomeManagementState extends State<HomeManagement> {
               myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
               minMaxZoomPreference: const MinMaxZoomPreference(14, 17),
             ),
-          )
+          ),
+        Column(children: <Widget>[
+        Expanded(
+            child: Align(
+                alignment: Alignment.bottomCenter,
+                child: ElevatedButton(
+                    onPressed: () async {
+                      final prefs = await SharedPreferences.getInstance();
+                    prefs.setBool('isLoggedIn',false);
+                    logout(context);
+                    }, child: const Text('Logout'))))
+      ]),
         ],
       )),
       floatingActionButton: FloatingActionButton(
@@ -62,3 +75,8 @@ class _HomeManagementState extends State<HomeManagement> {
     );
   }
 }
+
+Future<void> logout(BuildContext context) async {
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => LoginScreen()));
+  }

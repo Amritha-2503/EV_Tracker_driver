@@ -1,4 +1,5 @@
 import 'package:ceg_ev_driver/screens/home_screen.dart';
+import 'package:ceg_ev_driver/ui/splash.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -192,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          HomeScreen()));
+                                          Splash()));
                             },
                             child: Text(
                               "SignUp",
@@ -240,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           sharedPreferences.setString('id', id).then((_) {
                             Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context) => HomeScreen())
+                                MaterialPageRoute(builder: (context) => Splash())
                             );
                              });
                         } else {
