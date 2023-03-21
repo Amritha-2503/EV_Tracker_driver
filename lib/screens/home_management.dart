@@ -11,7 +11,7 @@ class HomeManagement extends StatefulWidget {
   @override
   State<HomeManagement> createState() => _HomeManagementState();
 }
-
+late SharedPreferences sharedPreferences;
 class _HomeManagementState extends State<HomeManagement> {
   LatLng latLng = getLatLngFromSharedPrefs();
   late CameraPosition _initialCameraPosition;

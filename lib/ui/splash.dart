@@ -4,7 +4,9 @@ import 'dart:convert';
 import 'package:location/location.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import '../screens/home_management.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+late SharedPreferences sharedPreferences;
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
 
